@@ -1,0 +1,25 @@
+<% content_for :head do %>
+    <meta charset="UTF-8">
+<% end %>
+<% provide(:title, 'Add') %>
+<h1>Add</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag({controller: "message", action: "add"},name:"create-message", method: "post", class: "nifty_form") do  %>
+        <%= label_tag(:title,"Title") %>
+        <%= text_field_tag(:title) %>
+
+        <%= label_tag(:message,"Message") %>
+        <%= text_area_tag(:message) %>
+
+        <input name="submit" type="submit" value="submit"/>
+    <% end %>
+  </div>
+  <div>
+    <%= button_to "Logout","/user/logout", :method => "get"%>
+  </div>
+  <% if flash[:failure] %>
+      <div class="notice"><%= flash[:failure] %>
+      </div>
+  <% end %>
+</div>

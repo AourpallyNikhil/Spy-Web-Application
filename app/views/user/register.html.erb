@@ -1,0 +1,26 @@
+<% content_for :head do %>
+    <meta charset="UTF-8">
+<% end %>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag({controller: "user", action: "register"},name:"register" , method: "post", class: "nifty_form") do  %>
+        <%= label_tag(:username,"Username") %>
+        <%= text_field_tag(:username) %>
+
+        <%= label_tag(:password,"Password") %>
+        <%= password_field_tag(:password) %>
+
+        <%= label_tag(:password_confirm, "Confirmation") %>
+        <%= password_field_tag(:password_confirm)  %>
+
+        <input name="submit" type="submit" value="submit"/>
+    <% end %>
+  </div>
+  <% if flash[:failure] %>
+      <div class="notice"><%= flash[:failure] %>
+      </div>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<% content_for :head do %>
+    <meta charset="UTF-8">
+<% end %>
+<div>
+  <% @message.each do |message| %>
+      <div class="message">
+      <ul>
+        <li><%= message.title %></li>
+        <li><%= message.message %></li>
+      </ul>
+      </div>
+  <% end %>
+</div>
